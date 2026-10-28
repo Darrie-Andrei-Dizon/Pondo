@@ -1,46 +1,102 @@
 # Pondo
 
-A private money tracker for cash, e-wallets and bank accounts. It runs as a web app you install on your iPhone's home screen. No App Store, no Mac, no fees.
+**A private money tracker that tells you how much you can spend today until your next payday or allowance.**
 
-## What's in this folder
+*Pondo* is Filipino for "funds". It runs in your phone's browser, installs to your home screen like an app, works offline, and keeps your data on your phone. There are no accounts, no ads and no fees.
 
-| File | What it does |
+**Open the app:** https://Darrie-Andrei-Dizon.github.io/pondo/
+
+---
+
+## What it does
+
+**Day to day**
+- **Left to spend today.** Your spending money, minus bills due before your next payday or allowance, split over the days until then.
+- **Fast logging.** Opens straight to a number pad. Your usual entries, like lunch or a jeep ride, are one tap away.
+- **Wallets** for cash, e-wallets and bank accounts, with transfers between them.
+- **Recurring bills** set aside before you spend.
+- **Activity** with a spending calendar, search, entry times and #tags for trips and events.
+
+**Planning**
+- **Budgets** set by hand or by a rule like 50/30/20 or 70/20/10, adjusting automatically to your income and habits.
+- **Savings goals and yearly costs**, with how much to put away each payday or allowance.
+- **Emergency fund meter** showing how many months your savings would cover.
+- **Extra money planner** for 13th month pay, bonuses, aguinaldo, birthday money or a stipend.
+- **Weekly recap and no-spend streaks.**
+
+**People and investments**
+- **Utang tracker** for split bills, money lent and money borrowed, with payment tracking and reminder messages.
+- **Investments** for stocks, UITFs and mutual funds, index funds, ETFs and crypto: average cost, gain or loss, dividends, and a net worth view.
+- **Optional credit cards**, with automatic monthly installment charges. Hidden unless you add a card.
+
+Works for both salaries and allowances, on monthly, weekly, every-2-weeks or daily schedules.
+
+---
+
+## Install it
+
+### iPhone
+1. Open the app link above in **Safari**.
+2. Tap **Share** (the square with an arrow; you may need to tap **⋯** first), then **Add to Home Screen**, then **Add**.
+3. Open Pondo **from the home screen icon** from now on.
+
+### Android
+1. Open the app link in **Chrome**.
+2. Tap the **⋮** menu, then **Add to Home screen** or **Install app**.
+3. Open Pondo from the new icon.
+
+> The installed app keeps its data separately from the browser. Always use the icon, or your entries will seem to disappear.
+
+---
+
+## Quick start
+
+1. **Set up.** Choose salary or allowance, how often you get it, and how much is in each wallet now. Or tap *Explore with sample data* to look around first.
+2. **Log as you go.** Tap **+**, type the amount, pick a category, and tap **Save**.
+3. **Check "Left to spend today"** on the Home screen. Tap it to see how it's worked out.
+4. **Add your bills** under **Settings → Recurring bills**, so they're set aside automatically.
+5. **Check your balances weekly.** On Home, tap **Check** next to Wallets and type what's really in each one, so the numbers stay accurate.
+6. **Turn on backups.** See the next section.
+
+---
+
+## Your data
+
+- Everything is stored **only on your device**. Nothing is sent anywhere unless you turn on Google Sheets backup, which sends it to **your own** Google account.
+- **Removing the home screen icon deletes the app's data**, and so does losing or resetting your phone, unless you have a backup.
+
+### Backups
+- **Google Sheets (recommended):** automatic daily backup to a Sheet in your Google account, with readable tabs and one-tap restore. Setup takes about 10 minutes; see [SHEETS-SETUP.md](SHEETS-SETUP.md).
+- **Backup file:** **Settings → Save a backup file**, then keep it in Files, iCloud Drive or Google Drive. Restore with **Settings → Restore from backup**.
+
+---
+
+## Good to know
+
+- Investment prices are entered by hand from your broker, bank or crypto app. They don't update by themselves.
+- There are no phone notifications. Reminders appear when you open the app.
+- Changing the currency changes the symbol only. Amounts aren't converted.
+- Pondo helps you track money. It doesn't give financial or investment advice.
+
+---
+
+## Run your own copy
+
+Pondo is plain HTML, CSS and JavaScript with no build step and no server.
+
+1. Fork this repository, or upload its files to a new public repository.
+2. In **Settings → Pages**, set the branch to **main** and the folder to **/ (root)**, then save.
+3. Your copy will be live at `https://Darrie-Andrei-Dizon.github.io/REPOSITORY-NAME/` within a few minutes.
+
+**Updating:** after changing `index.html`, also change `VERSION` in `sw.js` (for example `pondo-v2.2` to `pondo-v2.3`) so installed copies pick up the update. Users get it after closing and reopening the app.
+
+**Testing locally:** run `python -m http.server 8000` in this folder and open `http://localhost:8000`.
+
+| File | Purpose |
 |---|---|
 | `index.html` | The whole app: screens, styles and logic |
-| `sw.js` | Lets the app open and work offline |
+| `sw.js` | Offline support and updates |
 | `manifest.webmanifest` | App name, colors and icons for installing |
-| `icons/` | Home screen icons (`icon.svg` is the editable source) |
-| `apps-script.gs` | The script for automatic Google Sheets backup |
-| `SHEETS-SETUP.md` | Step-by-step setup for Google Sheets backup |
-
-## Put it online for free (GitHub Pages)
-
-1. Create a free account at github.com.
-2. Click **New repository**, name it `pondo`, set it to **Public**, and create it.
-3. Click **uploading an existing file**, drag in everything from this folder (including the `icons` folder), and click **Commit changes**.
-4. Go to **Settings → Pages**. Under "Branch", choose `main` and `/ (root)`, then **Save**.
-5. After a minute or two your app is live at `https://YOUR-USERNAME.github.io/pondo/`.
-
-## Install it on your iPhone
-
-1. Open that link in **Safari** (not Chrome).
-2. Tap the **Share** button, then **Add to Home Screen**, then **Add**.
-3. Open Pondo from the home screen icon. Use it from there from now on: the home screen app keeps its own data, separate from Safari.
-
-## Keep your data safe
-
-Your data lives only on your phone, so set up a backup:
-
-- **Google Sheets (recommended):** Pondo backs up to a Sheet in your Google account about once a day. See `SHEETS-SETUP.md`.
-- **Backup file:** **Settings → Save a backup file**, then save it to Files or iCloud Drive.
-
-Always open Pondo from the home screen icon. Safari keeps separate data, and removing the icon deletes the app's data.
-
-## Changing the app later
-
-1. Edit `index.html` (or ask Claude to).
-2. In `sw.js`, change `VERSION` (for example `pondo-v1.0` to `pondo-v1.1`). This tells phones there's an update.
-3. Upload the changed files to the same GitHub repository.
-4. Close and reopen Pondo on your phone, twice if needed, to load the new version. Your data stays.
-
-You can test changes on your computer by opening a terminal in this folder, running `python -m http.server 8000`, and visiting `http://localhost:8000`.
+| `icons/` | App icons (`icon.svg` is the source) |
+| `apps-script.gs` | Google Apps Script for Sheets backup |
+| `SHEETS-SETUP.md` | Sheets backup setup guide |
